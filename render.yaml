@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: monday-bi-agent-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    plan: free
+
+    envVars:
+      # ── Set these in Render dashboard → Environment ──────────────────
+      - key: MONDAY_API_TOKEN
+        sync: false           # enter manually in dashboard
+      - key: MONDAY_DEALS_BOARD_ID
+        sync: false
+      - key: MONDAY_WORK_ORDERS_BOARD_ID
+        sync: false
+      - key: GROK_API_KEY
+        sync: false
+      - key: GROK_MODEL
+        value: llama-3.1-8b-instant
+      - key: FRONTEND_ORIGIN
+        sync: false           # set to your Vercel URL e.g. https://monday-bi.vercel.app
+      - key: PYTHON_VERSION
+        value: "3.11.0"       # Render stable Python version

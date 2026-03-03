@@ -1,0 +1,42 @@
+# Python
+backend/.venv/
+backend/__pycache__/
+**/__pycache__/
+backend/*.pyc
+backend/*.pyo
+*.egg-info/
+dist/
+build/
+
+# Environment — never commit secrets
+.env
+.env.local
+.env.*.local
+
+# Dev/temp scripts — not needed in production
+backend/fetch_columns.py
+backend/test_live.py
+
+# Raw data files — fetched live from Monday.com
+data/
+
+# Dev docs
+decision_log.md
+
+# Node / Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Office temp lock files
+~$*
+
+# Editors
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
