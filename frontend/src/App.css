@@ -545,11 +545,102 @@ html, body, #root {
 }
 
 /* ── Responsive ─────────────────────────────── */
+
+/* Tablet: hide trace panel */
 @media (max-width: 900px) {
   .trace-section { display: none; }
+
+  .messages-list { padding: 16px 14px; }
+
+  .msg-body { max-width: calc(100vw - 80px); }
+
+  .suggestions { padding: 10px 14px 12px; }
+  .suggestions-grid { gap: 6px; }
+  .suggestion-chip { font-size: 11px; padding: 6px 11px; }
 }
+
+/* Phone: full mobile treatment */
 @media (max-width: 600px) {
+  /* Header */
+  .app-header {
+    padding: 0 12px;
+    height: 54px;
+    gap: 10px;
+  }
   .header-badges { display: none; }
   .brand-sub { display: none; }
-  .app-header { padding: 0 14px; }
+  .brand-icon { width: 32px; height: 32px; }
+  .brand-name { font-size: 14px; }
+  .header-status { font-size: 11px; gap: 5px; }
+  .status-dot { width: 6px; height: 6px; }
+
+  /* Body */
+  .app-body { flex-direction: column; }
+  .trace-section { display: none; }
+
+  /* Messages */
+  .messages-list {
+    padding: 12px 10px;
+    gap: 12px;
+  }
+
+  /* Bubbles — constrain to screen width */
+  .msg-body {
+    max-width: calc(100vw - 70px);
+  }
+  .msg-bubble {
+    padding: 10px 13px;
+    font-size: 13.5px;
+    line-height: 1.65;
+  }
+  .msg-avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+  .msg-wrapper { gap: 8px; }
+
+  /* Suggestions */
+  .suggestions {
+    padding: 8px 10px 10px;
+  }
+  .suggestions-label { font-size: 10px; margin-bottom: 6px; }
+  .suggestions-grid {
+    gap: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .suggestion-chip {
+    font-size: 11px;
+    padding: 7px 10px;
+    border-radius: var(--radius-md);
+    text-align: left;
+    white-space: normal;
+    line-height: 1.3;
+  }
+
+  /* Input area */
+  .chat-input-area {
+    padding: 10px 10px;
+  }
+  .chat-input-row {
+    padding: 6px 6px 6px 13px;
+    border-radius: var(--radius-lg);
+  }
+  .chat-textarea {
+    font-size: 16px; /* prevents iOS zoom on focus */
+  }
+  .btn-send {
+    width: 40px;
+    height: 40px;
+  }
+  .btn-clear {
+    font-size: 11px;
+    padding: 5px 12px;
+    margin-top: 6px;
+  }
+
+  /* Markdown in bubbles */
+  .msg-bubble code { font-size: 11px; }
+  .msg-bubble pre  { padding: 8px; font-size: 11px; }
 }
